@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Date de naissance</th>
+                        <th>categories</th> <!-- Add Action Column -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let chanteur of chanteurs">
+                        <td>{{ chanteur.idChanteur }}</td>
+                        <td>{{ chanteur.nomChanteur }}</td>
+                        <td>{{ chanteur.prixChanteur }}</td>
+                        <td>{{ chanteur.categorie.nomHipHop }}</td>
+                        <td>{{ chanteur.datenais | date: 'dd/MM/yyyy' }}</td>
+                        <td><a class="btn btn-danger" (click)="supprimerChanteur(chanteur)">Supprimer</a></td> <!-- Fixed Typo -->
+                        <td><a class="btn btn-success" [routerLink]="['/updateChanteur',chanteur.idChanteur]">Modifier</a></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

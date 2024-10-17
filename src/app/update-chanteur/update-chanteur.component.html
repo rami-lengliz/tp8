@@ -1,0 +1,38 @@
+<div class="container">
+    <div>
+        <h2>Modifier un chanteur :</h2>
+    </div>
+    <form #chanteurForm="ngForm">
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID chanteur</label>
+            <input type="text" [(ngModel)]="currentChanteur.idChanteur"
+            name="idChanteur" class="form-control" readonly>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom chanteur</label>
+            <input type="text" [(ngModel)]="currentChanteur.nomChanteur"
+            name="nomChanteur" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Prix chanteur</label>
+            <input type="number" [(ngModel)]="currentChanteur.prixChanteur"
+            name="prixChanteur" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date naissance</label>
+            <input type="date" [(ngModel)]="currentChanteur.datenais"
+            name="datenais" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <select class="form-control form-control-lg" id="idHipHop" name="idHipHop"
+            [(ngModel)]="updatedHipHopId">
+            <option *ngFor="let HipHop of categories" [value]="HipHop.idHipHop" >
+            {{HipHop.nomHipHop}}
+            </option>
+            </select>
+            </div>
+        <div class="mt-2">
+            <button type="button" (click)="updateChanteur()" class="btn btn-success">Modifier</button>
+        </div>
+    </form>
+</div>
