@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ChanteursComponent } from './chanteurs/chanteurs.component';
 import { AddChanteurComponent } from './add-chanteur/add-chanteur.component';
 import { UpdateChanteurComponent } from './update-chanteur/update-chanteur.component';
+import { RechercheParCategorieComponent } from './recherche-par-categorie/recherche-par-categorie.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { UpdateChanteurComponent } from './update-chanteur/update-chanteur.compo
     BindingComponent,
     ChanteursComponent,
     AddChanteurComponent,
-    UpdateChanteurComponent
+    UpdateChanteurComponent,
+    RechercheParCategorieComponent
   ],
   imports: [
     BrowserModule,

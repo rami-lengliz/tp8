@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'; // Correct import for Router
+import { Router } from '@angular/router';
 import { Categorie } from '../model/categorie.model';
 import { Chanteur } from '../model/chanteur.model';
 import { ChanteurService } from '../services/chanteur.service';
 
 @Component({
   selector: 'app-add-chanteur',
-  templateUrl: './add-chanteur.component.html',
-  styleUrls: ['./add-chanteur.component.css'] // Use styleUrls instead of styleUrl
+  templateUrl: './add-chanteur.component.html'
 })
 export class AddChanteurComponent implements OnInit {
 
@@ -18,22 +17,20 @@ export class AddChanteurComponent implements OnInit {
 
   message: string = "";
 
-  constructor(private chanteurService: ChanteurService, private router: Router) { // Added missing comma
-
-  }
+  constructor(private chanteurService: ChanteurService, private router: Router) { }
 
   ngOnInit(): void {
-    // Removed the addition here; this should only be done when ready to add
-    this.categories = this.chanteurService.listeCategories(); // Load categories on initialization
+    this.categories = this.chanteurService.listeCategories();
   }
 
   addChanteur() {
-    console.log(this.newChanteur);
     this.newCategorie = this.chanteurService.consulterCategorie(this.newIdHipHop);
     this.newChanteur.categorie = this.newCategorie;
-
     this.chanteurService.ajouterChanteur(this.newChanteur);
-    this.router.navigate(["chanteurs"]);
+
+    this.router.navigate(["/chanteurs"]);
+
+    this.message = 'Chanteur ajouté avec succès!';
   }
 
 }

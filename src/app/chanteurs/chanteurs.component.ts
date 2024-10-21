@@ -8,12 +8,10 @@ import { ChanteurService } from '../services/chanteur.service';
   styleUrls: ['./chanteurs.component.css']
 })
 export class ChanteursComponent implements OnInit {
-  chanteurs: Chanteur[] = [];  // Initialize chanteurs as an empty array
+  chanteurs: Chanteur[] = [];
 
-  // Injecting the ChanteurService via the constructor
   constructor(private chanteurService: ChanteurService) {}
 
-  // Fetch chanteurs in ngOnInit
   ngOnInit(): void {
     this.chanteurs = this.chanteurService.listeChanteurs();
   }

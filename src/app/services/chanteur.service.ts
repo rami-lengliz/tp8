@@ -9,6 +9,7 @@ export class ChanteurService {
 
   chanteurs: Chanteur[];
   categories: Categorie[];
+  chanteursRecherche!: Chanteur[];
 
   constructor() { 
     this.categories=[
@@ -17,9 +18,9 @@ export class ChanteurService {
     ];
 
     this.chanteurs = [
-      {idChanteur: 1, nomChanteur: "50 Cent", prixChanteur: 500000, datenais: new Date("2011-01-14") , categorie :{idHipHop:1, nomHipHop:"gg"}},
-      {idChanteur: 2, nomChanteur: "Drake", prixChanteur: 450000, datenais: new Date("2010-12-17") ,categorie :{idHipHop:1, nomHipHop:"gg"}},
-      {idChanteur: 3, nomChanteur: "Diddy", prixChanteur: 900000, datenais: new Date("2020-02-20"),categorie :{idHipHop:1, nomHipHop:"gg"}}
+      {idChanteur: 1, nomChanteur: "50 Cent", prixChanteur: 500000, datenais: new Date("2011-01-14") , categorie :{idHipHop:1, nomHipHop:"aaa"}},
+      {idChanteur: 2, nomChanteur: "Drake", prixChanteur: 450000, datenais: new Date("2010-12-17") ,categorie :{idHipHop:2, nomHipHop:"bbb"}},
+      {idChanteur: 3, nomChanteur: "Diddy", prixChanteur: 900000, datenais: new Date("2020-02-20"),categorie :{idHipHop:3, nomHipHop:"gg"}}
     ];
   }
 
@@ -29,21 +30,15 @@ export class ChanteurService {
   }
 
   // Add a new chanteur to the list
-  ajouterChanteur(chanteur: Chanteur) {
-    this.chanteurs.push(chanteur);
+  ajouterChanteur(chant: Chanteur) {
+    this.chanteurs.push(chant);
   }
   supprimerChanteur( prod: Chanteur){
-    //supprimer le produit prod du tableau produits
     const index = this.chanteurs.indexOf(prod, 0);
     if (index > -1) {
     this.chanteurs.splice(index, 1);
     }
-    //ou Bien
-    /* this.produits.forEach((cur, index) => {
-    if(prod.idProduit === cur.idProduit) {
-    this.produits.splice(index, 1);
-    }
-    }); */
+    
     }
     consulterChanteur(id:number): Chanteur{
       return this.chanteurs.find(p => p.idChanteur == id)!;
@@ -71,6 +66,16 @@ export class ChanteurService {
             consulterCategorie(id:number): Categorie{
             return this.categories.find(HipHop => HipHop.idHipHop == id)!;
             }
+            rechercherParCategorie(idHipHop: number): Chanteur[]{
+              this.chanteursRecherche = [];
+              this.chanteurs.forEach((cur, index) => {
+              if(idHipHop == cur.categorie.idHipHop) {
+              console.log("cur "+cur);
+              this.chanteursRecherche.push(cur);
+              }
+              });
+              return this.chanteursRecherche;
+              }
         }
           
     

@@ -1,43 +1,46 @@
 <div class="container">
     <div>
-    <h2>Ajouter un chanteur :</h2>
+      <h2>Ajouter un chanteur :</h2>
     </div>
-    <form >
-        <div class="col-sm-2 col-md-2 col-lg-2">
-        <label >ID chanteur</label>
-        <input type="text" [(ngModel)]="newChanteur.idChanteur"
-        name="idChanteur" class="form-control">
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4" >
-        <label >Nom chanteur</label>
-        <input type="text"[(ngModel)]= "newChanteur.nomChanteur"
-        name="nomChanteur" class="form-control">
-        </div>
-        <div class="col-sm-2 col-md-2 col-lg-2">
-        <label >Prix Produit</label>
-        <input type="number" [(ngModel)]= "newChanteur.prixChanteur"
-        name="prixChanteur" class="form-control">
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-        <label >Date création</label>
-        <input type="date" [(ngModel)]= "newChanteur.datenais"
-        name="datenais" class="form-control">
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <label>Categorie</label>
-            <select class="form-control form-control-lg" id="idHipHop" name="idHipHop"
-            [(ngModel)]="newIdHipHop">
-             <option *ngFor="let HipHop of categories" [value]="HipHop.idHipHop" >
-             {{HipHop.nomHipHop}}
-            </option>
-            </select>
-            </div>
-        <div class="mt-2">
-        <button type="submit" (click)="addChanteur()"class="btn btn-success">Ajouter</button>
-        <div>
-            <h2>{{message}}</h2>
-        </div>
-        
-    </div>
-        </form>
-        </div>
+  
+    <!-- Form submission handling with ngSubmit -->
+    <form (ngSubmit)="addChanteur()">
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>ID chanteur</label>
+        <input type="text" [(ngModel)]="newChanteur.idChanteur" name="idChanteur" class="form-control">
+      </div>
+  
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Nom chanteur</label>
+        <input type="text" [(ngModel)]="newChanteur.nomChanteur" name="nomChanteur" class="form-control">
+      </div>
+  
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>Prix Chanteur</label>
+        <input type="number" [(ngModel)]="newChanteur.prixChanteur" name="prixChanteur" class="form-control">
+      </div>
+  
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Date de naissance</label>
+        <input type="date" [(ngModel)]="newChanteur.datenais" name="datenais" class="form-control">
+      </div>
+  
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Catégorie</label>
+        <select class="form-control form-control-lg" id="idHipHop" name="idHipHop" [(ngModel)]="newIdHipHop">
+          <option *ngFor="let HipHop of categories" [value]="HipHop.idHipHop">
+            {{HipHop.nomHipHop}}
+          </option>
+        </select>
+      </div>
+  
+      <div class="mt-2">
+        <button type="submit" class="btn btn-success">Ajouter</button>
+      </div>
+  
+      <div>
+        <h2>{{message}}</h2> <!-- Display message after adding the chanteur -->
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+      <label>HipHop</label>
+      <select class="form-control form-control-lg" id="idHipHop" name="idHipHop"
+        [(ngModel)]="IdCategorie" (change)="onChange()"> <!-- Using IdCategorie -->
+        <option *ngFor="let HipHop of categories" [value]="HipHop.idHipHop">
+          {{HipHop.nomHipHop}}
+        </option>
+      </select>
+    </div>
+    
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nom</th>
+              <th>Prix</th>
+              <th>Date de naissance</th>
+              <th>Catégorie</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let chanteur of chanteurs">
+              <td>{{ chanteur.idChanteur }}</td>
+              <td>{{ chanteur.nomChanteur }}</td>
+              <td>{{ chanteur.prixChanteur }}</td>
+              <td>{{ chanteur.datenais | date: 'dd/MM/yyyy' }}</td>
+              <td>{{ chanteur.categorie.nomHipHop }}</td>
+              <td>
+                <a class="btn btn-danger" (click)="supprimerChanteur(chanteur)">Supprimer</a>
+                <a class="btn btn-success" [routerLink]="['/updateChanteur', chanteur.idChanteur]">Modifier</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
