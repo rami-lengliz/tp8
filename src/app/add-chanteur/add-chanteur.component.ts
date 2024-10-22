@@ -21,7 +21,7 @@ export class AddChanteurComponent implements OnInit {
 
   ngOnInit(): void {
     this.categories = this.chanteurService.listeCategories();
-  }
+  } 
 
   addChanteur() {
     this.newCategorie = this.chanteurService.consulterCategorie(this.newIdHipHop);
